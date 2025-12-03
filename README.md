@@ -1,4 +1,4 @@
-# AI-Resume-Intelligence-System🧠 AI Resume Intelligence System
+🧠 AI Resume Intelligence System
 
 The AI Resume Intelligence System is a smart AI-powered platform designed to analyze resumes, extract key information, and provide personalized career insights.
 It helps job seekers optimize their profiles and discover relevant opportunities based on real hiring patterns and industry-specific expectations.
@@ -63,8 +63,6 @@ pip install -r requirements.txt
 python app.py
 
 
-Visit:
-👉 http://127.0.0.1:5000/
 
 🧩 Future Improvements
 
@@ -80,4 +78,4 @@ Multi-language support
 
 Syed Faiz
 💼 Cloud & AI Enthusiast
-🔗 LinkedIn: (Add later)
+🔗 LinkedIn: (www.linkedin.com/in/syed-faiz01)
