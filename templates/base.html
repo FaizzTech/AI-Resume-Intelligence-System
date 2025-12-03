@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Scanner</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- GSAP + Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-[Poppins]">
+
+<!-- NAVBAR -->
+<nav class="flex justify-between items-center px-8 py-5 border-b bg-white shadow-sm sticky top-0 z-50">
+
+    <!-- Logo -->
+    <a href="/" class="text-xl font-semibold tracking-wide hover:opacity-60 transition">
+        🧠 ResumeAI <span class="text-blue-600">OS</span>
+    </a>
+
+    <!-- (Optional) Space for Theme Toggle or Menu -->
+    <!-- <button class="text-sm text-gray-600 hover:text-black">Settings</button> -->
+</nav>
+
+
+<!-- PAGE CONTENT -->
+<main class="p-10">
+    {% block content %}
+    {% endblock %}
+</main>
+
+
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+{% block scripts %}
+{% endblock %}
+
+</body>
+</html>

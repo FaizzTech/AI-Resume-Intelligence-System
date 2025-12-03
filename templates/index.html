@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="flex flex-col items-center gap-12 mt-20 relative">
+
+    <!-- 3D Floating Background Layer -->
+    <div class="absolute inset-0 bg-gradient-to-br from-cyan-200/30 via-purple-200/20 to-pink-200/30 blur-3xl -z-10"></div>
+
+    <!-- Title -->
+    <h1 class="text-5xl font-extrabold tracking-wide bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-[0_5px_10px_rgba(0,0,0,0.25)] animate-bounce">
+        ⚡ AI Resume Intelligence System
+    </h1>
+
+    <!-- Sub Description -->
+    <p class="text-lg text-gray-600 max-w-2xl text-center leading-relaxed">
+        Upload your resume and let AI analyze formatting, skills, keywords, and recruiter readiness.
+        Optimize your resume to increase interview chances.
+    </p>
+
+    <!-- Upload Form with 3D Effect -->
+    <form action="/analyze" method="POST" enctype="multipart/form-data"
+    class="w-full max-w-2xl threeD-card p-10 rounded-3xl text-center space-y-6 transform transition-all duration-500 hover:-translate-y-1">
+
+        <!-- Job Role Input -->
+        <label for="jobRole" class="w-full text-left text-gray-700 font-medium">
+            🎯 Target Job Role
+        </label>
+        <input type="text" name="job_role" id="jobRole"
+            placeholder="e.g., Software Engineer, Data Analyst"
+        class="w-full px-4 py-3 rounded-lg border border-gray-300 shadow-md focus:ring-2 focus:ring-purple-400 focus:outline-none" required autocomplete="off">
+
+        <!-- Suggestions dropdown -->
+        <div id="jobSuggestions" class="hidden mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-40 overflow-y-auto"></div>
+
+        <!-- Resume Upload -->
+        <label for="resumeInput"
+            class="w-full py-5 text-lg cursor-pointer text-gray-800 hover:text-purple-600 transition font-medium flex flex-col items-center gap-2">
+            📄 Click to Upload Resume (PDF Only)
+        </label>
+
+        <input type="file" name="resume" id="resumeInput" class="hidden" required>
+
+        <!-- 3D Preview -->
+        <div id="filePreview" class="hidden text-left bg-white/40 backdrop-blur-md p-4 rounded-lg border border-gray-200 shadow-lg scale-95 hover:scale-100 transition">
+            <p class="font-semibold text-indigo-600">File Selected:</p>
+            <p id="fileName" class="text-gray-700 text-sm"></p>
+            <p id="fileSize" class="text-gray-500 text-xs"></p>
+        </div>
+
+        <button type="submit"
+            class="w-full text-lg font-semibold py-4 rounded-xl neon-3d text-white transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(0,0,0,0.3)]">
+            🚀 Analyze Resume
+        </button>
+    </form>
+
+    <section class="max-w-3xl text-center mt-10">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">🤖 Powered by AI Evaluation</h2>
+        <p class="text-gray-600 leading-relaxed">
+            Uses NLP, ATS benchmarking & deep analysis for formatting,
+            <strong class="font-semibold text-gray-800">keywords, skill relevance & industry match.</strong>
+        </p>
+    </section>
+
+    <section class="max-w-3xl text-center mt-10">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">👨‍💻 Built by Syed Faizz</h2>
+        <p class="text-gray-600 leading-relaxed">
+            Building intelligent tools that help job seekers succeed.
+        </p>
+    </section>
+
+    <p class="text-xs text-gray-500 mt-10 border-t border-gray-300 pt-3">
+        Your file is processed temporarily and securely deleted after analysis.
+    </p>
+
+</div>
+
+
+<style>
+/* Glass 3D Card*/
+.threeD-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.12),
+        inset 0 0 15px rgba(255, 255, 255, 0.35);
+    transform-style: preserve-3d;
+    transition: 0.5s ease;
+}
+
+.threeD-card:hover {
+    transform: perspective(900px) rotateX(4deg) rotateY(-4deg) scale(1.02);
+}
+
+/* 3D Button */
+.neon-3d {
+    background: linear-gradient(135deg, #6c63ff, #d633ff, #ff00c8);
+    box-shadow: 
+        0px 6px 12px rgba(0, 0, 0, 0.25),
+        0 0 15px rgba(255, 0, 212, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+    border: none;
+}
+
+.neon-3d:active {
+    transform: scale(0.95);
+}
+</style>
+
+
+<script>
+document.getElementById("resumeInput").addEventListener("change", function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    document.getElementById("filePreview").classList.remove("hidden");
+    document.getElementById("fileName").textContent = "📌 " + file.name;
+    document.getElementById("fileSize").textContent = "📦 " + (file.size / 1024).toFixed(2) + " KB";
+});
+</script>
+
+{% endblock %}
