@@ -101,13 +101,3 @@ This project is open-source and available under the **MIT License**.
 
 ### ⭐ If you like this project, give it a Star on GitHub!
 
----
-
-Would you like me to also generate:
-
-* **Project badges (GitHub style)**
-* **Logo + Banner idea**
-* **Open-source contribution guidelines**
-* **Short tagline version for GitHub title**
-
-Just say: **"Bro add badges and logo idea."**
